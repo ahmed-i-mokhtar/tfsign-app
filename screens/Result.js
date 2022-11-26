@@ -5,11 +5,15 @@ export default function ResultScreen({ navigation, route }) {
   const { uri, res } = route?.params;
   const [params, setParams] = useState({})
   const [imageSize, setImageSize] = useState({ width: 1, height: 1 })
-  const [selected, setSelected] = useState(res[0])
+  const [selected, setSelected] = useState({})
 
   useEffect(() => {
     Image.getSize(uri, (width, height) => { setImageSize({ width: width, height: height }) });
     console.log(res)
+    if(res){
+      setSelected(res[0])
+    }
+
   }, [])
 
   return (
@@ -64,7 +68,11 @@ export default function ResultScreen({ navigation, route }) {
 
             </View>
           </View>
-          : <View />
+          :  <View style={{ width: "100%", height: (Dimensions.get("screen").height / 2), position: "absolute", top: (Dimensions.get("screen").height / 2) + 20 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 25, fontFamily: 'Cochin', textAlign: "center" }}>
+              No objects detected
+          </Text>
+        </View>
       }
 
 
