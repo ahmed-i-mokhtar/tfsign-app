@@ -70,7 +70,7 @@ export default function ResultScreen({ navigation, route }) {
           </View>
           :  <View style={{ width: "100%", height: (Dimensions.get("screen").height / 2), position: "absolute", top: (Dimensions.get("screen").height / 2) + 20 }}>
           <Text style={{ fontWeight: "bold", fontSize: 25, fontFamily: 'Cochin', textAlign: "center" }}>
-              No objects detected
+              No signs detected
           </Text>
         </View>
       }
